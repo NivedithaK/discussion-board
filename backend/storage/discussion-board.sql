@@ -10,8 +10,14 @@ CREATE TABLE users (
   email varchar(320) UNIQUE NOT NULL
 );
 
+CREATE TABLE semesters (
+  id SERIAL PRIMARY KEY,
+  semester_season varchar(100) NOT NULL,
+  semester_year int NOT NULL
+);
+
 CREATE TABLE institutions (
-  institution_id SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name varchar(100) NOT NULL,
   location varchar(100)
 );
