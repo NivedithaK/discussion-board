@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Box, SimpleGrid, Text } from "@chakra-ui/react";
+import { Heading, Link } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { BiPalette } from "react-icons/bi";
@@ -27,6 +28,20 @@ export default function Home() {
         <title>Homepage</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Heading as="h1" size="2xl" mb="2">
+        Welcome to{" "}
+        <Link
+          color="teal.500"
+          href="https://github.com/white-van/discussion-board"
+        >
+          Dialog!
+        </Link>
+      </Heading>
+      <p>{f("hello")}</p>
+      <p>{f("welcomeMessage")}</p>
+      <p>Current locale: {locale}</p>
+      <p>Default locale: {defaultLocale}</p>
+      <p>Configured locales: {JSON.stringify(locales)}</p>
 
       <main className={styles.main}>
         <Box bg="brand.100" w="100%" h="100%" p={10}>
@@ -75,16 +90,36 @@ export default function Home() {
         </Box>
       </main>
 
-      <footer className={styles.footer}>
+      <div className={styles.grid}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="https://github.com/white-van/discussion-board"
+          className={styles.card}
         >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          <h3>Contribute &rarr;</h3>
+          <p>View the project directory here.</p>
         </a>
-      </footer>
+
+        <a
+          href="https://docs.google.com/document/d/1wARWeLMthuZG_HX8N8bkGDzzljB8jNmCZY375sjEOnk/edit"
+          className={styles.card}
+        >
+          <h3>Learn &rarr;</h3>
+          <p>Learn about Dialog here!</p>
+        </a>
+
+        <a href="https://chakra-ui.com/" className={styles.card}>
+          <h3>Chakra-UI &rarr;</h3>
+          <p>Discover Chakra-UI, the beautiful CSS framework we use.</p>
+        </a>
+
+        <a
+          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+        >
+          <h3>Deploy &rarr;</h3>
+          <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
+        </a>
+      </div>
     </div>
   );
 }

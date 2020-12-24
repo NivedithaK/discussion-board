@@ -6,12 +6,29 @@
 import "../styles/globals.css";
 
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
 import { Provider } from "react-redux";
 
+import { Footer } from "../components/Footer/Footer";
+import { Navbar } from "../components/Navbar/Navbar";
 import * as locales from "../content/locale";
 import configureStore from "../stores/store";
+
+export const PageWrapper = ({ children, title }) => {
+  return (
+    <div className="container">
+      <Head>
+        <title>{title}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Navbar />
+      <main className="main">{children}</main>
+      <Footer />
+    </div>
+  );
+};
 
 export default function App({ Component, pageProps }) {
   const store = configureStore(pageProps.initialReduxState);
@@ -30,6 +47,9 @@ export default function App({ Component, pageProps }) {
     },
   });
 
+  const messagesMap = {
+    "/": "Homepage",
+  };
   return (
     <ChakraProvider theme={theme}>
       <IntlProvider
@@ -38,7 +58,9 @@ export default function App({ Component, pageProps }) {
         messages={messages}
       >
         <Provider store={store}>
-          <Component {...pageProps} />
+          <PageWrapper title={messagesMap[pathname]}>
+            <Component {...pageProps} />
+          </PageWrapper>
         </Provider>
       </IntlProvider>
     </ChakraProvider>
