@@ -1,11 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Heading, Link } from "@chakra-ui/react";
+import { Box, Heading, Link, SimpleGrid, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { BiPalette } from "react-icons/bi";
+import { ImWrench } from "react-icons/im";
+import { IoAccessibility } from "react-icons/io5";
+import { RiCodeSSlashLine } from "react-icons/ri";
+import { RiOpenSourceFill } from "react-icons/ri";
 import { useIntl } from "react-intl";
 
+import { FeatureCard } from "../components/FeatureCard/FeatureCard";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -22,52 +28,50 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Heading as="h1" size="2xl" mb="2">
-          Welcome to{" "}
-          <Link color="teal.500" href="https://nextjs.org">
-            Next.js!
-          </Link>
-        </Heading>
-        <p>{f("hello")}</p>
-        <p>{f("welcomeMessage")}</p>
-        <p>Current locale: {locale}</p>
-        <p>Default locale: {defaultLocale}</p>
-        <p>Configured locales: {JSON.stringify(locales)}</p>
+        <Box bg="blue.300" w="100%" h="100%" p={4}>
+          <Text fontSize="3xl" align="center" color="white" fontWeight="bold">
+            {f("featuresTitle")}
+          </Text>
+          <br></br>
+          <br></br>
+          <SimpleGrid columns={{ sm: 2, md: 3 }} spacing={12}>
+            <FeatureCard
+              title={f("feature1")}
+              description={f("feature1msg")}
+              icon={BiPalette}
+            />
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+            <FeatureCard
+              title={f("feature2")}
+              description={f("feature2msg")}
+              icon={ImWrench}
+            />
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+            <FeatureCard
+              title={f("feature3")}
+              description={f("feature3msg")}
+              icon={ImWrench}
+            />
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+            <FeatureCard
+              title={f("feature4")}
+              description={f("feature4msg")}
+              icon={IoAccessibility}
+            />
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+            <FeatureCard
+              title={f("feature5")}
+              description={f("feature5msg")}
+              icon={RiCodeSSlashLine}
+            />
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+            <FeatureCard
+              title={f("feature6")}
+              description={f("feature6msg")}
+              icon={RiOpenSourceFill}
+            />
+          </SimpleGrid>
+        </Box>
       </main>
 
       <footer className={styles.footer}>
