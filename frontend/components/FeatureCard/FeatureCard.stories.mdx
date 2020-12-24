@@ -8,10 +8,10 @@ import { FeatureCard } from "./FeatureCard";
 With `MDX` we can define a story for `FeatureCard` right in the middle of our
 markdown documentation.
 
-export const Template = (args) => <Box title={f("...")} description={f("...")} icon={...}/>
+export const Template = (args) => <FeatureCard {...args} />;
 
 <Canvas>
-  <Story name="featureCard" args={{ title: "..." }}>
+  <Story name="featureCard" args={{ title: "nice" }}>
     {Template.bind({})}
   </Story>
 </Canvas>

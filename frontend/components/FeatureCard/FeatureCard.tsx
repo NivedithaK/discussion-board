@@ -1,7 +1,7 @@
 import "./featureCard.module.css";
 
 import { Box as ChakraBox } from "@chakra-ui/react";
-import { Center, Icon, Text } from "@chakra-ui/react";
+import { Center, ChakraProvider, Icon, Text } from "@chakra-ui/react";
 import React from "react";
 import { IconType } from "react-icons";
 
@@ -24,8 +24,8 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
 }: FeatureCardProps) => {
   return (
     <ChakraBox
-      boxShadow="5px 5px 0px -4px #285E61, -10px -15px 0px 0px #BEE3F8"
-      width="280px"
+      boxShadow="5px 5px 0px 0px #4e93bb, -15px -20px 0px 0px #96cfee"
+      width="270px"
       height="200px"
       position="relative"
       bg="white"
@@ -35,15 +35,15 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
       pr="5"
     >
       <Center>
-        <Icon as={icon} w={50} h={50} color="blue.300" />
+        <Icon as={icon} w={50} h={50} color="brand.100" />
       </Center>
       <Center>
-        <Text fontSize="3xl" fontWeight="bold">
+        <Text fontSize="3xl" fontWeight="bold" color="brand.300">
           {title}
         </Text>
       </Center>
       <Center>
-        <Text fontSize="md" align="center">
+        <Text fontSize="md" align="center" color="brand.300">
           {description}
         </Text>
       </Center>

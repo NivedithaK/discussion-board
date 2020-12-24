@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Box, Heading, Link, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, SimpleGrid, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { BiPalette } from "react-icons/bi";
+import { FaUniversity } from "react-icons/fa";
 import { ImWrench } from "react-icons/im";
 import { IoAccessibility } from "react-icons/io5";
 import { RiCodeSSlashLine } from "react-icons/ri";
@@ -28,13 +29,13 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Box bg="blue.300" w="100%" h="100%" p={4}>
+        <Box bg="brand.100" w="100%" h="100%" p={10}>
           <Text fontSize="3xl" align="center" color="white" fontWeight="bold">
             {f("featuresTitle")}
           </Text>
           <br></br>
           <br></br>
-          <SimpleGrid columns={{ sm: 2, md: 3 }} spacing={12}>
+          <SimpleGrid columns={{ sm: 2, md: 3 }} spacing={14}>
             <FeatureCard
               title={f("feature1")}
               description={f("feature1msg")}
@@ -50,7 +51,7 @@ export default function Home() {
             <FeatureCard
               title={f("feature3")}
               description={f("feature3msg")}
-              icon={ImWrench}
+              icon={FaUniversity}
             />
 
             <FeatureCard

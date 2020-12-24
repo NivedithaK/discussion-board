@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
+import theme from "../pages/index";
 
 const ColorModeToggleBar = () => {
   const { toggleColorMode } = useColorMode();
@@ -30,7 +31,12 @@ const ColorModeToggleBar = () => {
 };
 
 const withChakra = (StoryFn: Function) => (
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
+    <IntlProvider
+        locale={locale}
+        defaultLocale={defaultLocale}
+        messages={messages}
+    >
     <ColorModeToggleBar />
     <StoryFn />
   </ChakraProvider>
